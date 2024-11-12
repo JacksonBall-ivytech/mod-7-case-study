@@ -34,3 +34,23 @@ state = df.copy()
 state.set_index('State', inplace=True)
 print(state.head())
 print(state.loc['OH'])
+
+# 3. Update
+# 3.1
+print(df.isnull().sum())
+df.dropna(inplace=True)
+print(df.isnull().sum())
+# 3.2
+print(df.drop('Area code', axis=1))
+# 3.3
+df['New Column'] = df['Total night minutes'] + df['Total intl minutes']
+print(df.head())
+# 3.4
+df['New Column'] = 100
+print(df.head())
+# 3.5
+df.iloc[0, -1] = 10
+print(df.head())
+# 3.6
+df['Churn Binary'] = df['Churn'].apply(lambda x: 1 if x== True else 0)
+print(df[df['Churn']==True].head())
