@@ -54,3 +54,9 @@ print(df.head())
 # 3.6
 df['Churn Binary'] = df['Churn'].apply(lambda x: 1 if x== True else 0)
 print(df[df['Churn']==True].head())
+
+# 4. Delete/Output
+df.to_csv('output.csv')
+df.to_json()
+df.to_html()
+del df
